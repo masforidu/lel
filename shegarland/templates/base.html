@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ShegarLand{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shegarland/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'shegarland/css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        header, footer {
+            background-color: purple;
+            color: blue;
+        }
+        .navbar {
+            background-color: silver;
+        }
+        .navbar-brand, .nav-link {
+            color: blue !important;
+        }
+        .nav-link:hover {
+            color: darkblue !important;
+        }
+        .footer {
+            color: blue;
+            padding: 5px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: blue;
+        }
+        .footer a:hover {
+            color: darkblue;
+        }
+        .hero {
+            background-color: azure;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: maroon;
+            text-align: center;
+            position: relative;
+        }
+        .hero img {
+            width: 80px;
+            position: absolute;
+            top: 10%;
+            transform: translateY(-50%);
+        }
+        .hero img.oro-log {
+            left: 0px;
+        }
+        .hero img.shegarlog {
+            right: 0px;
+        }
+        main.container {
+            background-color: gray;
+            color: indigo;
+            padding: 60px;
+            border-radius: 10px;
+        }
+        .card {
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+          <!-- Hero Section -->
+    <div class="hero">
+        <div>
+            <h1> W/ra Lafa Magaala Shaggar, Daarektoreetii Q/B/E/Lafaa</h1>
+            <h1>'Welcome to Shegar Land Office, Land Prep. and Bank Director'</h1>
+            <p>Ergamni Keenya Sirna bulchiinsaa fi itti fayyadama lafaa wayitawwaa ta’e dirirsuun, Misooma Lafa irrattii gaggeeffamu karaa Itti fufinsaan qabuun hogganuun, fayyadamummaa hawwaasa Magaalichaa mirkaneessuu.</p>
+        </div>
+    </div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Galmee misensaa/Register page/</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Karra Seensaa/Login/</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Kuusaa ragaa/user dashboard/</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'submit_form' %}">Galmee Qoph.fi baankii lafaa/Form and Map container/</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admin_dashboard' %}">Fuula Adminii/Admin Dashboard/admini qofaf</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'password_reset' %}">Jecha icciti dagattan debisuuf/Password reset/</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'report' %}">Gabaasa/report/Adminii qofaf</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">Odeffannoo/About/</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-5">
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <footer class="footer mt-5">
+        <p>© 2024 Redwan Sultan. All rights reserved | 
+           <a href="{% url 'privacy_policy' %}">Privacy Policy</a> | 
+           <a href="{% url 'terms_of_service' %}">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script src="{% static 'shegarland/js/jquery.min.js' %}"></script>
+    <script src="{% static 'shegarland/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
